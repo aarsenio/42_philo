@@ -9,7 +9,7 @@ OBJS	= $(SRCS:.c=.o)
 
 NAME	= philo
 
-CC		= gcc
+CC		= cc
 
 CFLAGS	= -Wall -Wextra -Werror -pthread #-g -fsanitize=address
 

@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:33:37 by aarsenio          #+#    #+#             */
-/*   Updated: 2022/12/30 16:16:51 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:38:26 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ void	*test(void *philo)
 
 void	philo_init(void)
 {
-	t_philo	philo[data()->philo_nbr];
+	t_philo	*philo;
 	int		i;
 
 	i = 0;
+	philo = malloc(sizeof(t_philo) * data()->philo_nbr);
+	if (!philo)
+		return ;
 	while (i < data()->philo_nbr)
 	{
 		philo[i].id = i + 1;
@@ -39,4 +42,5 @@ void	philo_init(void)
 	i = 0;
 	while (i < data()->philo_nbr)
 		pthread_join(philo[i++].philo_thread, NULL);
+	free(philo);
 }
