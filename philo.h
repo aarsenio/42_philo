@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 22:32:52 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/06 16:11:20 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:41:15 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,17 @@
 # include <unistd.h>
 # include <pthread.h>
 
+typedef struct s_table
+{
+	int				have_fork;
+	pthread_mutex_t	mutex_fork;
+}t_table;
+
 typedef struct s_philo
 {
 	int				id;
 	int				nbr_times_eat;
+	int				fork;
 	long int		last_meal;
 	pthread_t		philo_thread;
 	
@@ -38,6 +45,7 @@ typedef struct s_data
 	long int		start;
 	pthread_mutex_t	mutex_dead;
 	t_philo			*philo;
+	t_table			*table;
 }t_data;
 
 //STRUCTS FUNCTIONS

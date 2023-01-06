@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 22:45:11 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/06 16:11:28 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:40:28 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	data_init(char **av)
 {
+	int	i;
+
+	i = -1;
 	data()->dead = 0;
 	data()->philo_nbr = ft_atoi(av[1]);
 	data()->die_time = ft_atoi(av[2]);
@@ -27,4 +30,12 @@ void	data_init(char **av)
 	data()->philo = malloc(sizeof(t_philo) * data()->philo_nbr);
 	if (!data()->philo)
 		return ;
+	data()->table = malloc(sizeof(t_table) * data()->philo_nbr);
+	if (!data()->table)
+		return ;
+	while (++i < data()->philo_nbr)
+	{
+		pthread_mutex_init(&data()->table[i].mutex_fork, NULL);
+		data()->table[i].have_fork = 1;
+	}
 }

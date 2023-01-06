@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:33:37 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/06 16:57:00 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:56:17 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	philo_init(void)
 	{
 		data()->philo[i].id = i + 1;
 		data()->philo[i].nbr_times_eat = 0;
+		data()->philo[i].fork = 0;
 		data()->philo[i].last_meal = data()->start;
 		pthread_create(&data()->philo[i].philo_thread, NULL, &routine, &data()->philo[i]);
 		i++;
