@@ -6,14 +6,14 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 23:20:26 by aarsenio          #+#    #+#             */
-/*   Updated: 2022/12/30 14:05:47 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:52:21 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 #include <sys/time.h>
 
-unsigned long	current_time(void)
+long int	get_time(void)
 {
 	struct timeval	current_time;
 
@@ -21,7 +21,7 @@ unsigned long	current_time(void)
 	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000);
 }
 
-unsigned long	time_diff(unsigned long action)
+void	print_msg(t_philo *philo, char *msg)
 {
-	return (action - data()->start);
+	printf("%ld %i %s\n", (get_time() - data()->start), philo->id, msg);
 }

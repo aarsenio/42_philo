@@ -4,6 +4,7 @@ SRCS	= main.c \
 		  utils/time.c \
 		  utils/ft_atoi.c \
 		  utils/threads.c \
+		  utils/exit.c
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -27,5 +28,8 @@ fclean: clean
 		$(RM) $(NAME) $(OBJS)
 
 re: fclean all
+
+r:
+	make re && make clean && clear && ./philo 5 50 50 50
 
 .PHONY: all clean fclean re

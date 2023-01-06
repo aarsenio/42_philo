@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structs_call.c                                     :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/29 22:45:33 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/06 16:52:33 by aarsenio         ###   ########.fr       */
+/*   Created: 2023/01/05 17:48:08 by aarsenio          #+#    #+#             */
+/*   Updated: 2023/01/05 19:24:13 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-t_data	*data(void)
+void	exit_program(void)
 {
-	static t_data	data;
-
-	return (&data);
+	if (data()->philo)
+		free(data()->philo);
+	exit(0);
 }
