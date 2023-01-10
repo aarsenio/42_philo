@@ -1,8 +1,7 @@
 SRCS	= main.c \
 		  utils/data_init.c \
 		  utils/structs_call.c \
-		  utils/time.c \
-		  utils/ft_atoi.c \
+		  utils/lib.c \
 		  utils/threads.c \
 		  utils/exit.c
 
@@ -12,7 +11,7 @@ NAME	= philo
 
 CC		= cc
 
-CFLAGS	= -Wall -Wextra -Werror -pthread #-g -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -pthread #-g -fsanitize=thread
 
 RM		= rm -rf
 
@@ -30,6 +29,6 @@ fclean: clean
 re: fclean all
 
 r:
-	make re && make clean && clear && ./philo 5 50 50 50
+	make re && make clean && clear && ./philo 5 60 50 50
 
 .PHONY: all clean fclean re

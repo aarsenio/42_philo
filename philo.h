@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 22:32:52 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/06 17:41:15 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:36:26 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ typedef struct s_table
 
 typedef struct s_philo
 {
+	
 	int				id;
 	int				nbr_times_eat;
 	int				fork;
 	long int		last_meal;
 	pthread_t		philo_thread;
-	
 }t_philo;
 
 typedef struct s_data
@@ -50,7 +50,6 @@ typedef struct s_data
 
 //STRUCTS FUNCTIONS
 t_data	*data(void);
-void	print_data(void);
 
 //LIBRARY
 int			ft_atoi(const char *str);
