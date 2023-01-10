@@ -3,7 +3,9 @@ SRCS	= main.c \
 		  utils/structs_call.c \
 		  utils/lib.c \
 		  utils/threads.c \
-		  utils/exit.c
+		  utils/exit.c \
+		  utils/death.c \
+		  utils/eat.c
 
 OBJS	= $(SRCS:.c=.o)
 

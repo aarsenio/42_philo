@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 22:32:52 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/10 15:36:26 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:42:12 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,13 @@ t_data	*data(void);
 int			ft_atoi(const char *str);
 long int	get_time(void);
 void		print_msg(t_philo *philo, char *msg);
+int			check_dead(void);
+void		is_dead(t_philo *philo);
 
 //PROGRAM
 void	data_init(char **av);
 void	philo_init(void);
+void	start_eat(t_philo *philo);
 void	exit_program(void);
 
 #endif
