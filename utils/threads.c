@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:33:37 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/10 16:52:49 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:26:27 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	*routine(void *t)
 	t_philo	*philo;
 
 	philo = t;
+	if (philo->id % 2 == 0)
+		usleep(10000);
 	while (!check_dead() && philo->nbr_times_eat != data()->eat_nbr)
 	{
 		start_eat(philo);
