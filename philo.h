@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 22:32:52 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/10 16:42:12 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:02:32 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_table
 
 typedef struct s_philo
 {
-	
 	int				id;
 	int				nbr_times_eat;
 	int				fork;
@@ -48,20 +47,15 @@ typedef struct s_data
 	t_table			*table;
 }t_data;
 
-//STRUCTS FUNCTIONS
-t_data	*data(void);
-
-//LIBRARY
+t_data		*data(void);
 int			ft_atoi(const char *str);
 long int	get_time(void);
 void		print_msg(t_philo *philo, char *msg);
 int			check_dead(void);
 void		is_dead(t_philo *philo);
-
-//PROGRAM
-void	data_init(char **av);
-void	philo_init(void);
-void	start_eat(t_philo *philo);
-void	exit_program(void);
+void		data_init(char **av);
+void		philo_init(void);
+void		start_eat(t_philo *philo);
+void		exit_program(void);
 
 #endif

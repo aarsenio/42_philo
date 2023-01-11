@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:33:37 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/10 21:26:27 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:04:30 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*routine(void *t)
 
 	philo = t;
 	if (philo->id % 2 == 0)
-		usleep(10000);
+		usleep(100);
 	while (!check_dead() && philo->nbr_times_eat != data()->eat_nbr)
 	{
 		start_eat(philo);
@@ -54,7 +54,8 @@ void	philo_init(void)
 		data()->philo[i].nbr_times_eat = 0;
 		data()->philo[i].fork = 0;
 		data()->philo[i].last_meal = data()->start;
-		pthread_create(&data()->philo[i].philo_thread, NULL, &routine, &data()->philo[i]);
+		pthread_create(&data()->philo[i].philo_thread, NULL, \
+		&routine, &data()->philo[i]);
 	}
 	i = -1;
 	while (++i < data()->philo_nbr)
