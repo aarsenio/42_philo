@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 22:45:11 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/10 16:22:03 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/11 12:28:34 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	data_init(char **av)
 	if (!data()->table)
 		return ;
 	pthread_mutex_init(&data()->mutex_dead, NULL);
+	pthread_mutex_init(&data()->mutex_print, NULL);
 	i = -1;
 	while (++i < data()->philo_nbr)
 	{

@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 22:32:52 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/11 11:02:32 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/11 12:40:37 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_data
 	int				philo_nbr;
 	long int		start;
 	pthread_mutex_t	mutex_dead;
+	pthread_mutex_t	mutex_print;
 	t_philo			*philo;
 	t_table			*table;
 }t_data;

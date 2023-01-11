@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:48:08 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/11 11:04:08 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:22:06 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	exit_program(void)
 
 	i = -1;
 	pthread_mutex_destroy(&data()->mutex_dead);
+	pthread_mutex_destroy(&data()->mutex_print);
 	while (++i < data()->philo_nbr)
 		pthread_mutex_destroy(&data()->table[i].mutex_fork);
 	if (data()->table)

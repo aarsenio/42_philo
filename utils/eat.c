@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:41:21 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/11 11:05:07 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:28:19 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static void	return_fork(t_philo *philo, int left, int right)
 
 void	start_eat(t_philo *philo)
 {
-	long int	eat_start;
 	int			left;
 	int			right;
 
@@ -50,13 +49,12 @@ void	start_eat(t_philo *philo)
 		take_fork(philo, right);
 		is_dead(philo);
 	}
-	eat_start = get_time();
+	philo->last_meal = get_time();
 	if (!check_dead() && (philo->nbr_times_eat <= data()->eat_nbr || \
 		data()->eat_nbr == -1))
 		print_msg(philo, "is eating");
-	while (!check_dead() && ((get_time() - eat_start) < data()->eat_time))
+	while (!check_dead() && ((get_time() - philo->last_meal) < data()->eat_time))
 		usleep(1);
-	philo->last_meal = get_time();
 	if (data()->eat_nbr != -1)
 		philo->nbr_times_eat++;
 	return_fork(philo, left, right);
