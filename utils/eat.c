@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:41:21 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/13 16:30:42 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:16:34 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ static void	take_fork(t_philo *philo, int slot)
 static void	return_fork(t_philo *philo, int left, int right)
 {
 	pthread_mutex_lock(&data()->table[left].mutex_fork);
-	data()->table[left].have_fork = 1;
-	pthread_mutex_unlock(&data()->table[left].mutex_fork);
 	pthread_mutex_lock(&data()->table[right].mutex_fork);
+	data()->table[left].have_fork = 1;
 	data()->table[right].have_fork = 1;
+	pthread_mutex_unlock(&data()->table[left].mutex_fork);
 	pthread_mutex_unlock(&data()->table[right].mutex_fork);
 	philo->fork = 0;
 }
