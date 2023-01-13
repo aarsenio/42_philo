@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:33:37 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/11 12:40:45 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:27:47 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	start_sleep(t_philo *philo, long int sleep_start)
 {
-	if (!check_dead() && philo->nbr_times_eat != data()->eat_nbr)
+	if (philo->nbr_times_eat != data()->eat_nbr)
 		print_msg(philo, "is sleeping");
 	while (!check_dead() && ((get_time() - sleep_start) < data()->sleep_time))
 	{
@@ -22,7 +22,7 @@ void	start_sleep(t_philo *philo, long int sleep_start)
 		usleep(1);
 	}
 	is_dead(philo);
-	if (!check_dead() && philo->nbr_times_eat != data()->eat_nbr)
+	if (philo->nbr_times_eat != data()->eat_nbr)
 		print_msg(philo, "is thinking");
 }
 

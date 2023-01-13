@@ -31,6 +31,6 @@ fclean: clean
 re: fclean all
 
 r:
-	make re && make clean && clear && ./philo 200 410 200 200
+	make re && make clean && clear && ./philo 4 410 200 100
 
 .PHONY: all clean fclean re

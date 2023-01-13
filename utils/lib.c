@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 23:20:26 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/11 13:20:45 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:25:33 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ long int	get_time(void)
 void	print_msg(t_philo *philo, char *msg)
 {
 	pthread_mutex_lock(&data()->mutex_print);
-	printf("%ld %i %s\n", (get_time() - data()->start), philo->id, msg);
+	if (!check_dead())
+		printf("%ld %i %s\n", (get_time() - data()->start), philo->id, msg);
 	pthread_mutex_unlock(&data()->mutex_print);
 }
 

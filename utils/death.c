@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:28:58 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/11 12:40:31 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:26:09 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	is_dead(t_philo *philo)
 		if (data()->dead < 3)
 			data()->dead++;
 		if (data()->dead == 1)
-			print_msg(philo, "died");
+			printf("%ld %i %s\n", (get_time() - data()->start), philo->id, "died");
 		pthread_mutex_unlock(&data()->mutex_dead);
 	}
 }

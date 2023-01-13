@@ -6,7 +6,7 @@
 /*   By: aarsenio <aarsenio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:41:21 by aarsenio          #+#    #+#             */
-/*   Updated: 2023/01/11 13:28:19 by aarsenio         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:30:42 by aarsenio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	take_fork(t_philo *philo, int slot)
 	{
 		data()->table[slot].have_fork = 0;
 		philo->fork++;
-		if (!check_dead() && philo->nbr_times_eat != data()->eat_nbr)
+		if (philo->nbr_times_eat != data()->eat_nbr)
 			print_msg(philo, "has taken a fork");
 	}
 	pthread_mutex_unlock(&data()->table[slot].mutex_fork);
@@ -46,16 +46,20 @@ void	start_eat(t_philo *philo)
 	while (!check_dead() && philo->fork != 2)
 	{
 		take_fork(philo, left);
+		is_dead(philo);
 		take_fork(philo, right);
 		is_dead(philo);
 	}
 	philo->last_meal = get_time();
-	if (!check_dead() && (philo->nbr_times_eat <= data()->eat_nbr || \
+	if ((philo->nbr_times_eat <= data()->eat_nbr || \
 		data()->eat_nbr == -1))
 		print_msg(philo, "is eating");
 	while (!check_dead() && ((get_time() - philo->last_meal) < data()->eat_time))
+	{
+		is_dead(philo);
 		usleep(1);
+	}
+	return_fork(philo, left, right);
 	if (data()->eat_nbr != -1)
 		philo->nbr_times_eat++;
-	return_fork(philo, left, right);
 }
